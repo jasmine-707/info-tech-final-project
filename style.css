@@ -157,6 +157,20 @@ main {
 }
 
 /* Podcast content */
+
+.title {
+            text-align: center;
+        }
+        .intro {
+            margin: 50px 300px 50px 300px;
+        }
+        img {
+            display: block;
+            height: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
  .podcastcontent {
             background-color: rgb(168, 204, 241);
             padding: 100px;
