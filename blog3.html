@@ -1,12 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UX Podcast</title>
-    <style>
-        .title {
+    <title>UX Design vs UX Research</title>
+   
+  <style>
+  
+  /* General Styles */
+body {
+        font-family: Arial, sans-serif;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        color: black;
+        background: white;
+       }
+
+.nav {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #333333;
+        padding: 1em;
+       }
+
+.nav img {
+        position: absolute;
+        left: 20px;
+        height: 50px; 
+       }
+
+.nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+       }
+
+.nav li {
+        margin: 0 10px;
+       }
+
+.nav a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 0.5em;
+       }
+
+.nav a:hover {
+        background: #758CDD;
+        border-radius: 10px;
+       }
+
+header {
+        text-align: center;
+        padding: 2em 1em;
+        background: white;
+        border-bottom: 1px solid #ddd;
+       }
+
+header h1 {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+       }
+
+header p {
+        font-size: 1em;
+       }
+
+
+/* Podcast content */
+.title {
             text-align: center;
         }
         .intro {
@@ -24,19 +91,44 @@
             margin: 50px 200px 50px 200px;
             border-radius: 20px;
         }
-    </style>
-</head>
+
+/* Footer */
+footer {
+   		    text-align: center;
+            padding: 10px;
+            background-color: #333333;
+            color: white;
+            margin-top: 20px;
+        }
+        
+   </style/
+   </head>
 
 <body>
-    <main>
+   <div class="nav">
+        <img src="logo.jpg" alt="Logo">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#blog">Blog</a></li>
+        </ul>
+    </div>
+
+   <header>
+        <h1>5 Podcasts That Help You Grow by Listening</h1>
+        <p><strong>By Lanting Ko</strong> &nbsp; | &nbsp; 20 Min Read &nbsp; | &nbsp; Published On Nov 25th, 2024</p>
+   </header>
+
+   <main>
+        <img src="podcast.jpeg" alt="ai-generated podcast image">
+
+        <section class="intro">
+            <p1>
+               Don’t feel like reading anymore? Podcasts are a great way to learn about user experience and technology trends! You can listen while making breakfast, taking a walk, or whenever it fits your schedule. It’s an easy and flexible way to stay on top of the ever-changing UX world. Based on the ranking on <a href="https://www.listennotes.com">Listen Notes</a>, here are 5 of the top 1% most popular UX and Technology shows out of <a href="https://www.listennotes.com/podcast-stats/">3,452,942</a> podcasts worldwide.
+            </p1>
+        </section>
         
-        <h1 class="title">5 Podcasts That Help You Grow by Listening</h1>
-
-        <div class="intro">
-            <p>Don’t feel like reading anymore? Podcasts are a great way to learn about user experience and technology trends! You can listen while making breakfast, taking a walk, or whenever it fits your schedule. It’s an easy and flexible way to stay on top of the ever-changing UX world. Based on the ranking on <a href="https://www.listennotes.com">Listen Notes</a>, here are 5 of the top 1% most popular UX and Technology shows out of <a href="https://www.listennotes.com/podcast-stats/">3,452,942</a> podcasts worldwide.</p>
-        </div>
-
-        <img src="../info-tech/image/podcast.jpeg" alt="ai-generated podcast image">
+        <!-- Main Article Section -->
 
         <ul>
             <div class="podcastcontent">
@@ -79,8 +171,11 @@
             <p>"Truly one of the most entertaining podcasts, whether or not you’re a tech nerd. The banter is fun, the opposing views add depth and keep things from being one-sided. App reviews have been incredibly helpful in discovering new tools I need but didn’t find on my own or was too overwhelmed to search for. Bonus points for the best podcast theme of all time. Thanks Casey and Kevin!  PS For those who celebrate, Casey Newton does not sound bald.”</p>
             </div>
         </ul>
+     </main>
+         
+   <footer>
+    <p>&copy; 2024 JML. Copyrights Reserved.</p>
+   </footer>
 
-        
-    </main>
 </body>
 </html>
