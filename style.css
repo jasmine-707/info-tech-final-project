@@ -8,13 +8,6 @@ body {
         background: white;
        }
 
-.intro {
-        font-size: 1em;
-        margin: 1em;
-        text-align: justify;
-        color: #333333;
-    }
-
 .nav {
         position: relative;
         display: flex;
