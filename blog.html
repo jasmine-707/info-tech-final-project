@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: black;
+      background: white;
+    }
+
+    .nav {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #333333;
+      padding: 1em;
+    }
+
+    .nav img {
+      position: absolute;
+      left: 20px;
+      height: 50px;
+    }
+
+    .nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .nav li {
+      margin: 0 10px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      padding: 0.5em;
+    }
+
+    .nav a:hover {
+      background: #758CDD;
+      border-radius: 10px;
+    }
+
+    header {
+      text-align: center;
+      padding: 2em 1em;
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    .image-section {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .image-wrapper {
+      display: block;
+      width: 100%;
+      max-width: 800px;
+      height: 400px; 
+      margin: 0 auto 2rem;
+      background-color: #d9d9d9;
+      border: 1px solid #ccc;
+      background-size: cover;
+      background-position: center;
+    }
+
+    
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333333;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <img src="logo.jpg" alt="Logo">
+    <ul>
+      <li><a href="#home.html">Home</a></li>
+      <li><a href="#about.html">About Us</a></li>
+      <li><a href="#blog.html">Blog</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <section class="image-section">
+      <a href="main-page.html" class="image-wrapper" style="background-image: url('blog1banner.jpg');">
+      </a>
+    </section>
+
+    <section class="image-section">
+      <a href="page1.html" class="image-wrapper" style="background-image: url('blog2banner.jpg');">
+      </a>
+      <a href="page2.html" class="image-wrapper" style="background-image: url('blog3banner.jpg');">
+      </a>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2024 JML. Copyrights Reserved.</p>
+  </footer>
+</body>
+</html>
