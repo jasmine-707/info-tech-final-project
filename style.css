@@ -226,6 +226,24 @@ main {
 }
 
 
+/* blog page */
+
+.image-section {
+     text-align: center;
+     margin-bottom: 2rem;
+}
+
+.image-wrapper {
+     display: block;
+     width: 100%;
+     max-width: 800px;
+     height: 400px; 
+     margin: 0 auto 2rem;
+     border-radius: 8px;
+     background-size: cover;
+     background-position: center;
+}
+
 /* Footer */
 footer {
    		    text-align: center;
