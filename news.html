@@ -78,7 +78,7 @@
 
     <script>
         async function fetchTechNewsData() {
-            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&categories=tech&language=en`
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&locale=us&categories=tech&language=en`
             var response = await fetch(url);
             var jsonData = await response.json();
             var container = document.getElementById("tech-news-container");
@@ -98,7 +98,7 @@
         fetchTechNewsData();
 
         async function fetchBusinessNewsData() {
-            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&categories=business&language=en`
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&locale=us&categories=business&language=en`
             var response = await fetch(url);
             var jsonData = await response.json();
             var container = document.getElementById("business-news-container");
@@ -118,7 +118,7 @@
         fetchBusinessNewsData();
 
         async function fetchUxNewsData() {
-            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&language=en&search=user experience design`
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&locale=us&language=en&search=user experience design`
             var response = await fetch(url);
             var jsonData = await response.json();
             var container = document.getElementById("ux-news-container");
