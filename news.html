@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <style>
+        h3 {
+            color: white;
+            margin-left: 10px;
+        }
+
+        #news{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); gap: 10px;
+            margin: 100px;
+        }
+
+        #tech-news-container, #business-news-container, #ux-news-container {
+            width: fit-content;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: start;
+            border-radius: 10px;
+            background-color: black;
+            margin-top: 50px;
+        }
+
+        .newsCard {
+            width: 500px;
+            height: fit-content;
+            padding: 10px;
+            display: block;
+            margin: 10px;
+            border-bottom: 1px rgb(232, 225, 225);
+            border-style: solid;
+        }
+
+        .newsImage {
+            margin: 10px;
+            float: left;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .newsTitle {
+            color: rgb(27, 107, 243);
+            text-decoration: none;
+        }
+
+        .snippet {
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>News</h2>
+
+    <div id="news">
+        <div id = "ux-news-container">
+            <h3>User Experience</h3>
+        </div>
+    
+        <div id = "tech-news-container">
+            <h3>Technology</h3>
+        </div>
+    
+        <div id = "business-news-container">
+            <h3>Business</h3>
+        </div>
+    </div>
+
+    <script>
+        async function fetchTechNewsData() {
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&categories=tech&language=en`
+            var response = await fetch(url);
+            var jsonData = await response.json();
+            var container = document.getElementById("tech-news-container");
+
+            jsonData["data"].forEach(article => {
+                var newsCard = document.createElement("div");
+                newsCard.innerHTML = `
+                <img src="${article.image_url}" alt="${article.title}" class = "newsImage">
+                <a href = "${article.url}" target="_blank" class = "newsTitle"><h4>${article.title}</h4></a>
+                <p class = "snippet">${article.snippet}</p>
+                `;
+                newsCard.className = "newsCard";
+                container.appendChild(newsCard);
+            });
+        }
+
+        fetchTechNewsData();
+
+        async function fetchBusinessNewsData() {
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&categories=business&language=en`
+            var response = await fetch(url);
+            var jsonData = await response.json();
+            var container = document.getElementById("business-news-container");
+
+            jsonData["data"].forEach(article => {
+                var newsCard = document.createElement("div");
+                newsCard.innerHTML = `
+                <img src="${article.image_url}" alt="${article.title}" class = "newsImage">
+                <a href = "${article.url}" target="_blank" class = "newsTitle"><h4>${article.title}</h4></a>
+                <p class = "snippet">${article.snippet}</p>
+                `;
+                newsCard.className = "newsCard";
+                container.appendChild(newsCard);
+            });
+        }
+
+        fetchBusinessNewsData();
+
+        async function fetchUxNewsData() {
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&language=en&search=user experience design`
+            var response = await fetch(url);
+            var jsonData = await response.json();
+            var container = document.getElementById("ux-news-container");
+
+            jsonData["data"].forEach(article => {
+                var newsCard = document.createElement("div");
+                newsCard.innerHTML = `
+                <img src="${article.image_url}" alt="${article.title}" class = "newsImage">
+                <a href = "${article.url}" target="_blank" class = "newsTitle"><h4>${article.title}</h4></a>
+                <p class = "snippet">${article.snippet}</p>
+                `;
+                newsCard.className = "newsCard";
+                container.appendChild(newsCard);
+            });
+        }
+
+        fetchUxNewsData();
+    </script>
+</body>
+</html>
