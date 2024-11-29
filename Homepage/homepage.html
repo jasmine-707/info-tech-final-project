@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        h3 {
+            color: white;
+            margin-left: 10px;
+        }
+
+        #news{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); gap: 10px;
+        }
+
+        #tech-news-container, #business-news-container, #ux-news-container {
+            width: fit-content;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: start;
+            border-radius: 10px;
+            background-color: black;
+            margin-top: 50px;
+        }
+
+        .newsCard {
+            width: 500px;
+            height: fit-content;
+            padding: 10px;
+            display: block;
+            margin: 10px;
+            border-bottom: 1px rgb(232, 225, 225);
+            border-style: solid;
+        }
+
+        .newsImage {
+            margin: 10px;
+            float: left;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .newsTitle {
+            color: rgb(27, 107, 243);
+            text-decoration: none;
+        }
+
+        .snippet {
+            color: white;
+            font-size: 14px;
+        }
+
+        [data-component="slideshow"] .slide {
+            display: none;
+            text-align: center;
+        }
+
+        [data-component="slideshow"] .slide.active {
+            display: block;
+        }
+
+        #slideshow {
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .slideshow-button-left {
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+        }
+        .slideshow-button-right {
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+        }
+        .buttonImage {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slideshow" data-component="slideshow">
+        <div role="list">
+            <div class="slide">
+                <img src="../Homepage/img/blog1banner.jpg" alt="story board blog post picture">
+            </div>
+            <div class="slide">
+                <img src="../Homepage/img/blog2banner.jpg" alt="ux design or ux research blog post picture">
+            </div>
+            <div class="slide">
+                <img src="../Homepage/img/blog3banner.jpg" alt="podcast blog post picture included ai generated illustration">
+            </div>
+        </div>
+        <!-- previous and next -->
+        <button class="slideshow-button-left"><img src="../Homepage/img/previous.png" alt="previous icon" class="buttonImage"></button>
+        <button class="slideshow-button-right"><img src="../Homepage/img/next.png" alt="next icon" class="buttonImage"></button>
+    </div>
+
+    <h2>News</h2>
+
+    <div id="news">
+        <div id = "ux-news-container">
+            <h3>User Experience</h3>
+        </div>
+    
+        <div id = "tech-news-container">
+            <h3>Technology</h3>
+        </div>
+    
+        <div id = "business-news-container">
+            <h3>Business</h3>
+        </div>
+    </div>
+
+    <script>
+        var slideshows = document.querySelectorAll('[data-component="slideshow"]');
+        slideshows.forEach(initSlideShow);
+        function initSlideShow(slideshow) {
+            var slides = slideshow.querySelectorAll ('[role="list"] .slide');
+            var leftButton = slideshow.querySelector('.slideshow-button-left');
+            var rightButton = slideshow.querySelector('.slideshow-button-right');
+            // set index defaut as 0 & change picture every 4 secs
+            var index = 0, time = 4000;
+            slides[index].classList.add('active');
+
+            setInterval (() => {
+                slides[index].classList.remove('active');
+            index++;
+            // when index number = 3 return to 0
+            if (index === slides.length) index = 0;
+                slides[index].classList.add('active');
+            }, time);
+
+            leftButton.addEventListener('click', goToPreviousSlide);
+            rightButton.addEventListener('click', goToNextSlide);
+
+            function goToPreviousSlide() {
+                slides[index].classList.remove('active');
+                index--;
+                if (index < 0) index = slides.length - 1;
+                slides[index].classList.add('active');
+            }
+
+            function goToNextSlide() {
+                slides[index].classList.remove('active');
+                index++;
+                if (index === slides.length) index = 0;
+                slides[index].classList.add('active');
+            }
+        }
+
+        async function fetchTechNewsData() {
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=SuZ1jowezIUyfxOaCOeojVQCXoXjDWhscSIWRh1i&locale=us&categories=tech&language=en`
+            var response = await fetch(url);
+            var jsonData = await response.json();
+            var container = document.getElementById("tech-news-container");
+
+            // create a div when receive data from the news API
+            jsonData["data"].forEach(article => {
+                var newsCard = document.createElement("div");
+                newsCard.innerHTML = `
+                <img src="${article.image_url}" alt="${article.title}" class = "newsImage">
+                <a href = "${article.url}" target="_blank" class = "newsTitle"><h4>${article.title}</h4></a>
+                <p class = "snippet">${article.snippet}</p>
+                `;
+                newsCard.className = "newsCard";
+                container.appendChild(newsCard);
+            });
+        }
+
+        fetchTechNewsData();
+
+        async function fetchBusinessNewsData() {
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=SuZ1jowezIUyfxOaCOeojVQCXoXjDWhscSIWRh1i&locale=us&categories=business&language=en`
+            var response = await fetch(url);
+            var jsonData = await response.json();
+            var container = document.getElementById("business-news-container");
+
+            jsonData["data"].forEach(article => {
+                var newsCard = document.createElement("div");
+                newsCard.innerHTML = `
+                <img src="${article.image_url}" alt="${article.title}" class = "newsImage">
+                <a href = "${article.url}" target="_blank" class = "newsTitle"><h4>${article.title}</h4></a>
+                <p class = "snippet">${article.snippet}</p>
+                `;
+                newsCard.className = "newsCard";
+                container.appendChild(newsCard);
+            });
+        }
+
+        fetchBusinessNewsData();
+
+        async function fetchUxNewsData() {
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=SuZ1jowezIUyfxOaCOeojVQCXoXjDWhscSIWRh1i&locale=us&language=en&search=user experience design`
+            var response = await fetch(url);
+            var jsonData = await response.json();
+            var container = document.getElementById("ux-news-container");
+
+            jsonData["data"].forEach(article => {
+                var newsCard = document.createElement("div");
+                newsCard.innerHTML = `
+                <img src="${article.image_url}" alt="${article.title}" class = "newsImage">
+                <a href = "${article.url}" target="_blank" class = "newsTitle"><h4>${article.title}</h4></a>
+                <p class = "snippet">${article.snippet}</p>
+                `;
+                newsCard.className = "newsCard";
+                container.appendChild(newsCard);
+            });
+        }
+
+        fetchUxNewsData();
+    </script>
+</body>
+</html>
