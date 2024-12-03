@@ -4,42 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>News</title>
     <style>
+        /* General Reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style-type: none;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar .nav-links li {
+            display: inline;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        /* News Section */
+        h2 {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+
         h3 {
             color: white;
             margin-left: 10px;
         }
 
-        #news{
+        #news {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
         }
 
         #tech-news-container, #business-news-container, #ux-news-container {
-            width: fit-content;
-            padding: 10px;
-            display: grid;
-            grid-template-columns: 1fr;
-            align-items: start;
-            border-radius: 10px;
+            padding: 15px;
             background-color: black;
-            margin-top: 50px;
+            border-radius: 10px;
         }
 
         .newsCard {
-            width: 500px;
-            height: fit-content;
+            width: 100%;
             padding: 10px;
-            display: block;
-            margin: 10px;
-            border-bottom: 1px rgb(232, 225, 225);
-            border-style: solid;
+            margin: 10px 0;
+            border-bottom: 1px solid rgb(232, 225, 225);
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
         }
 
         .newsImage {
-            margin: 10px;
-            float: left;
             width: 100px;
             height: 100px;
             object-fit: cover;
@@ -51,149 +102,79 @@
             text-decoration: none;
         }
 
+        .newsTitle h4 {
+            margin: 0;
+        }
+
         .snippet {
             color: white;
             font-size: 14px;
         }
 
-        [data-component="slideshow"] .slide {
-            display: none;
-            text-align: center;
-        }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .newsCard {
+                flex-direction: column;
+                align-items: center;
+            }
 
-        [data-component="slideshow"] .slide.active {
-            display: block;
-        }
+            .newsImage {
+                width: 80%;
+                height: auto;
+            }
 
-        #slideshow {
-            position: relative;
-            margin: 0 auto;
-        }
-
-        .slideshow-button-left {
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border: none;
-            position: absolute;
-            top: 50%;
-            left: 10px;
-        }
-        .slideshow-button-right {
-            width: 50px;
-            height: 50px;
-            background-color: transparent;
-            border: none;
-            position: absolute;
-            top: 50%;
-            right: 10px;
-        }
-        .buttonImage {
-            width: 100%;
-            height: auto;
+            .navbar .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="navbar">
-    <div class="logo">My News Website</div>
-    <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="news.html">News</a></li>
-    </ul>
-    <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</div>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <img src="logo.png" alt="Website Logo" class="logo">
+            </div>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-    <div id="slideshow" data-component="slideshow">
-        <div role="list">
-            <div class="slide">
-                <img src="../Homepage/img/blog1banner.jpg" alt="story board blog post picture">
-            </div>
-            <div class="slide">
-                <img src="../Homepage/img/blog2banner.jpg" alt="ux design or ux research blog post picture">
-            </div>
-            <div class="slide">
-                <img src="../Homepage/img/blog3banner.jpg" alt="podcast blog post picture included ai generated illustration">
-            </div>
-        </div>
-        <!-- previous and next -->
-        <button class="slideshow-button-left"><img src="../Homepage/img/previous.png" alt="previous icon" class="buttonImage"></button>
-        <button class="slideshow-button-right"><img src="../Homepage/img/next.png" alt="next icon" class="buttonImage"></button>
-    </div>
-
+    <!-- News Section -->
     <h2>News</h2>
-
     <div id="news">
-        <div id = "ux-news-container">
+        <div id="ux-news-container">
             <h3>User Experience</h3>
         </div>
-    
-        <div id = "tech-news-container">
+        <div id="tech-news-container">
             <h3>Technology</h3>
         </div>
-    
-        <div id = "business-news-container">
+        <div id="business-news-container">
             <h3>Business</h3>
         </div>
     </div>
 
     <script>
-        var slideshows = document.querySelectorAll("[data-component='slideshow']");
-        slideshows.forEach(initSlideShow);
-        function initSlideShow(slideshow) {
-            var slides = slideshow.querySelectorAll ("[role='list'] .slide");
-            var leftButton = slideshow.querySelector(".slideshow-button-left");
-            var rightButton = slideshow.querySelector(".slideshow-button-right");
-            // set index defaut as 0 & change picture every 4 secs
-            var index = 0, time = 4000;
-            slides[index].classList.add("active");
-
-            setInterval (() => {
-                slides[index].classList.remove("active");
-            index++;
-            // when index number = 3 return to 0
-            if (index === slides.length) index = 0;
-                slides[index].classList.add("active");
-            }, time);
-
-            leftButton.addEventListener("click", goToPreviousSlide);
-            rightButton.addEventListener("click", goToNextSlide);
-
-            function goToPreviousSlide() {
-                slides[index].classList.remove("active");
-                index--;
-                if (index < 0) index = slides.length - 1;
-                slides[index].classList.add("active");
-            }
-
-            function goToNextSlide() {
-                slides[index].classList.remove("active");
-                index++;
-                if (index === slides.length) index = 0;
-                slides[index].classList.add("active");
-            }
-        }
-
         async function fetchTechNewsData() {
-            var url = `https://api.thenewsapi.com/v1/news/top?api_token=SuZ1jowezIUyfxOaCOeojVQCXoXjDWhscSIWRh1i&locale=us&categories=tech&language=en`
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&locale=us&categories=tech&language=en`
             var response = await fetch(url);
             var jsonData = await response.json();
             var container = document.getElementById("tech-news-container");
 
-            // create a div when receive data from the news API
             jsonData["data"].forEach(article => {
                 var newsCard = document.createElement("div");
                 newsCard.innerHTML = `
-                <img src="${article.image_url}" alt="${article.title}" class = "newsImage">
-                <a href = "${article.url}" target="_blank" class = "newsTitle"><h4>${article.title}</h4></a>
-                <p class = "snippet">${article.snippet}</p>
+                <img src="${article.image_url}" alt="${article.title}" class="newsImage">
+                <a href="${article.url}" target="_blank" class="newsTitle"><h4>${article.title}</h4></a>
+                <p class="snippet">${article.snippet}</p>
                 `;
                 newsCard.className = "newsCard";
                 container.appendChild(newsCard);
@@ -203,7 +184,7 @@
         fetchTechNewsData();
 
         async function fetchBusinessNewsData() {
-            var url = `https://api.thenewsapi.com/v1/news/top?api_token=SuZ1jowezIUyfxOaCOeojVQCXoXjDWhscSIWRh1i&locale=us&categories=business&language=en`
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&locale=us&categories=business&language=en`
             var response = await fetch(url);
             var jsonData = await response.json();
             var container = document.getElementById("business-news-container");
@@ -211,9 +192,9 @@
             jsonData["data"].forEach(article => {
                 var newsCard = document.createElement("div");
                 newsCard.innerHTML = `
-                <img src="${article.image_url}" alt="${article.title}" class = "newsImage">
-                <a href = "${article.url}" target="_blank" class = "newsTitle"><h4>${article.title}</h4></a>
-                <p class = "snippet">${article.snippet}</p>
+                <img src="${article.image_url}" alt="${article.title}" class="newsImage">
+                <a href="${article.url}" target="_blank" class="newsTitle"><h4>${article.title}</h4></a>
+                <p class="snippet">${article.snippet}</p>
                 `;
                 newsCard.className = "newsCard";
                 container.appendChild(newsCard);
@@ -223,7 +204,7 @@
         fetchBusinessNewsData();
 
         async function fetchUxNewsData() {
-            var url = `https://api.thenewsapi.com/v1/news/top?api_token=SuZ1jowezIUyfxOaCOeojVQCXoXjDWhscSIWRh1i&locale=us&language=en&search=user experience design`
+            var url = `https://api.thenewsapi.com/v1/news/top?api_token=oPewgOtw1QPDbnb2gFTFMuhuYSA3Cfb086Sr1gVI&locale=us&language=en&search=user experience design`
             var response = await fetch(url);
             var jsonData = await response.json();
             var container = document.getElementById("ux-news-container");
@@ -231,9 +212,9 @@
             jsonData["data"].forEach(article => {
                 var newsCard = document.createElement("div");
                 newsCard.innerHTML = `
-                <img src="${article.image_url}" alt="${article.title}" class = "newsImage">
-                <a href = "${article.url}" target="_blank" class = "newsTitle"><h4>${article.title}</h4></a>
-                <p class = "snippet">${article.snippet}</p>
+                <img src="${article.image_url}" alt="${article.title}" class="newsImage">
+                <a href="${article.url}" target="_blank" class="newsTitle"><h4>${article.title}</h4></a>
+                <p class="snippet">${article.snippet}</p>
                 `;
                 newsCard.className = "newsCard";
                 container.appendChild(newsCard);
@@ -243,4 +224,6 @@
         fetchUxNewsData();
     </script>
 </body>
+
 </html>
+
