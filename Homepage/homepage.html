@@ -130,39 +130,39 @@
     </div>
 
     <script>
-        var slideshows = document.querySelectorAll('[data-component="slideshow"]');
+        var slideshows = document.querySelectorAll("[data-component='slideshow']");
         slideshows.forEach(initSlideShow);
         function initSlideShow(slideshow) {
-            var slides = slideshow.querySelectorAll ('[role="list"] .slide');
-            var leftButton = slideshow.querySelector('.slideshow-button-left');
-            var rightButton = slideshow.querySelector('.slideshow-button-right');
+            var slides = slideshow.querySelectorAll ("[role='list'] .slide");
+            var leftButton = slideshow.querySelector(".slideshow-button-left");
+            var rightButton = slideshow.querySelector(".slideshow-button-right");
             // set index defaut as 0 & change picture every 4 secs
             var index = 0, time = 4000;
-            slides[index].classList.add('active');
+            slides[index].classList.add("active");
 
             setInterval (() => {
-                slides[index].classList.remove('active');
+                slides[index].classList.remove("active");
             index++;
             // when index number = 3 return to 0
             if (index === slides.length) index = 0;
-                slides[index].classList.add('active');
+                slides[index].classList.add("active");
             }, time);
 
-            leftButton.addEventListener('click', goToPreviousSlide);
-            rightButton.addEventListener('click', goToNextSlide);
+            leftButton.addEventListener("click", goToPreviousSlide);
+            rightButton.addEventListener("click", goToNextSlide);
 
             function goToPreviousSlide() {
-                slides[index].classList.remove('active');
+                slides[index].classList.remove("active");
                 index--;
                 if (index < 0) index = slides.length - 1;
-                slides[index].classList.add('active');
+                slides[index].classList.add("active");
             }
 
             function goToNextSlide() {
-                slides[index].classList.remove('active');
+                slides[index].classList.remove("active");
                 index++;
                 if (index === slides.length) index = 0;
-                slides[index].classList.add('active');
+                slides[index].classList.add("active");
             }
         }
 
