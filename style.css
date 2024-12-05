@@ -186,6 +186,7 @@ main {
 .about-page h1, .about-page h2 {
     color: #333;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .about-page p {
