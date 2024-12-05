@@ -115,6 +115,102 @@ main {
         border-radius: 10px; 
        }
 
+
+/* Home Section */
+
+  h3 {
+            color: white;
+            margin-left: 10px;
+        }
+
+        #news {
+            display: column;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        #tech-news-container, #business-news-container, #ux-news-container {
+            width: fit-content;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: start;
+            border-radius: 10px;
+            background-color: black;
+            margin-top: 50px;
+        }
+
+        .newsCard {
+            width: 500px;
+            height: fit-content;
+            padding: 10px;
+            display: block;
+            margin: 10px;
+            border-bottom: 1px rgb(232, 225, 225);
+            border-style: solid;
+        }
+
+        .newsImage {
+            margin: 10px;
+            float: left;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .newsTitle {
+            color: rgb(27, 107, 243);
+            text-decoration: none;
+        }
+
+        .snippet {
+            color: white;
+            font-size: 14px;
+        }
+
+        [data-component="slideshow"] .slide {
+            display: none;
+            text-align: center;
+        }
+
+        [data-component="slideshow"] .slide.active {
+            display: block;
+        }
+
+        #slideshow {
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .slideshow-button-left {
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+        }
+
+        .slideshow-button-right {
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+        }
+
+        .buttonImage {
+            width: 100%;
+            height: auto;
+        }
+
+
+
+
 /* Comparison Section */
 .comparison-container {
     display: flex;
