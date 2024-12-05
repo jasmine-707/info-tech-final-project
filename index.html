@@ -98,7 +98,7 @@
             var jsonData = await response.json();
             var container = document.getElementById("tech-news-container");
 
-            jsonData["data"].forEach(article => {
+            jsonData.data.forEach(article => {
                 var newsCard = document.createElement("div");
                 newsCard.innerHTML = `
                 <img src="${article.image_url}" alt="${article.title}" class="newsImage">
@@ -118,7 +118,7 @@
             var jsonData = await response.json();
             var container = document.getElementById("business-news-container");
 
-            jsonData["data"].forEach(article => {
+            jsonData.data.forEach(article => {
                 var newsCard = document.createElement("div");
                 newsCard.innerHTML = `
                 <img src="${article.image_url}" alt="${article.title}" class="newsImage">
@@ -138,7 +138,7 @@
             var jsonData = await response.json();
             var container = document.getElementById("ux-news-container");
 
-            jsonData["data"].forEach(article => {
+            jsonData.data.forEach(article => {
                 var newsCard = document.createElement("div");
                 newsCard.innerHTML = `
                 <img src="${article.image_url}" alt="${article.title}" class="newsImage">
