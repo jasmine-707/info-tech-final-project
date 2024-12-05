@@ -6,35 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-        /* Navbar styles */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            padding: 10px 20px;
-        }
+       .nav {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #333333;
+        padding: 1em;
+       }
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+.nav img {
+        position: absolute;
+        left: 20px;
+        height: 50px; 
+       }
 
-        nav ul li {
-            margin: 0 10px;
-        }
+.nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+       }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.nav li {
+        margin: 0 10px;
+       }
 
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
+.nav a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 0.5em;
+       }
+
+.nav a:hover {
+        background: #758CDD;
+        border-radius: 10px;
+       }
+
 
         h3 {
             color: white;
@@ -131,13 +140,13 @@
 <body>
     <!-- Navigation Bar -->
   <div class="nav">
-    <img src="logo.jpg" alt="Logo">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
-  </div>
+        <img src="logo.jpg" alt="Logo">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </div>
 
     <!-- Slideshow Section -->
     <div id="slideshow" data-component="slideshow">
