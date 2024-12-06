@@ -118,7 +118,8 @@ main {
 
 /* Home Section */
         h3 {
-                color: yellow;
+            color: #DBF227;
+            text-align: center;
         }
 
         #news {
