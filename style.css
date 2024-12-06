@@ -124,9 +124,10 @@ main {
         }
 
         #news {
-            display: column;
-            grid-template-columns: repeat(3, 1fr);
+            display: block;
+            margin: 250px;
             gap: 10px;
+            position: relative;
         }
 
         #tech-news-container, #business-news-container, #ux-news-container {
