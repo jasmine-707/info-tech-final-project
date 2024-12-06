@@ -137,11 +137,11 @@ main {
             align-items: start;
             border-radius: 10px;
             background-color: black;
-            margin-top: 50px;
+            margin: 50px auto auto auto;
         }
 
         .newsCard {
-            width: 500px;
+            width: 800px;
             height: fit-content;
             padding: 10px;
             display: block;
@@ -349,3 +349,10 @@ footer {
             color: white;
             margin-top: 20px;
         }
+
+/* RWD */
+@media screen and (max-width: 500px){
+    .newsCard {
+        width: 400px;
+    }
+}
