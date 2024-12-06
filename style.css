@@ -269,9 +269,11 @@ main {
 
  .podcastcontent {
             background-color: rgb(168, 204, 241);
-            padding: 100px;
-            margin: 50px 200px 50px 200px;
+            padding: 20px; 
+            margin: 20px auto; 
             border-radius: 20px;
+            max-width: 800px; 
+            width: 90%;          
 }
 
 /* About Page Styles */
