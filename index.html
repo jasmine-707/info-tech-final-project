@@ -20,24 +20,24 @@
     </div>
 
     <!-- Slideshow Section -->
-    <div id="slideshow" data-component="slideshow">
-        <div role="list">
-            <div class="slide">
+    <div id="slideshow">
+        <ul>
+            <li class="slide">
                 <a href="blog1.html">
                 <img src="blog1banner.jpg" alt="storyboard blog post picture">
                 </a>   
-            </div>
-            <div class="slide">
+            </li>
+            <li class="slide">
                 <a href="blog2.html">
                 <img src="blog2banner.jpg" alt="ux design or ux research blog post picture">
                 </a>  
-            </div>
-            <div class="slide">
+            </li>
+            <li class="slide">
                 <a href="blog3.html">
                 <img src="blog3banner.jpg" alt="podcast blog post picture included ai generated illustration">
                 </a> 
-            </div>
-        </div>
+            </li>
+        </ul>
         <!-- previous and next -->
         <button class="slideshow-button-left"><img src="previous.png" alt="previous icon" class="buttonImage"></button>
         <button class="slideshow-button-right"><img src="next.png" alt="next icon" class="buttonImage"></button>
@@ -60,11 +60,11 @@
 
     <script>
         // Slideshow JavaScript
-        var slideshows = document.querySelectorAll("[data-component='slideshow']");
-        slideshows.forEach(initSlideShow);
+        var slideshows = document.getElementById("slideshow");
+        initSlideShow(slideshows);
 
         function initSlideShow(slideshow) {
-            var slides = slideshow.querySelectorAll("[role='list'] .slide");
+            var slides = slideshow.querySelectorAll("ul .slide");
             var leftButton = slideshow.querySelector(".slideshow-button-left");
             var rightButton = slideshow.querySelector(".slideshow-button-right");
             // Set index default as 0 & change picture every 4 secs
