@@ -169,12 +169,12 @@ main {
             font-size: 14px;
         }
 
-        [data-component="slideshow"] .slide {
+        .slide {
             display: none;
             text-align: center;
         }
 
-        [data-component="slideshow"] .slide.active {
+        .slide.active {
             display: block;
         }
 
