@@ -117,6 +117,10 @@ main {
 
 
 /* Home Section */
+        h1 {
+            color: black;
+        }
+
         h3 {
             color: #7B57E8;
             text-align: center;
