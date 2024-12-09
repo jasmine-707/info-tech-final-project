@@ -360,4 +360,9 @@ footer {
     .newsCard {
         width: 400px;
     }
+
+    .bannerimg {
+        width: 400px;
+        height: auto;
+    }
 }
