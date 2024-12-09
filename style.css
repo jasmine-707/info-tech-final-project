@@ -322,7 +322,8 @@ main {
 }
 
 .team-member p {
-    margin: 0;
+    margin: auto;
+    padding: 0;
     color: #555;
     text-align: left;
 }
